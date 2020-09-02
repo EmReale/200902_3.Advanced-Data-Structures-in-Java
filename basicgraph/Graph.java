@@ -19,7 +19,8 @@ import util.GraphLoader;
  * @author UCSD MOOC development team and ER
  */
 
-// Abstract class extended by GraphMatrix and GraphList
+// Abstract class extended by GraphAdjMatrix and 
+// GraphAdjList
 public abstract class Graph {
 
 	private int numVertices;
@@ -46,8 +47,8 @@ public abstract class Graph {
 		return numEdges;
 	}
 	
-	// Adds a new vertex to the graph where its index is the next available integer
-	// Adding a vertex increases the count by 1
+	// Adds a new vertex to the graph where its index is the next 
+	// available integer. Adding a vertex increases the count by 1
 	public int addVertex() {
 		implementAddVertex();
 		numVertices ++;
@@ -73,10 +74,12 @@ public abstract class Graph {
 	// edge to the representation of the graph.
 	public abstract void implementAddEdge(int v, int w);
 	
-	// Abstract method that returns outgoing neightbours of a given vertex
+	// Abstract method that returns outgoing neightbours 
+	// of a given vertex
 	public abstract List<Integer> getNeighbors(int v); 
 	
-	// Abstract method that returns incoming neightbours of a given vertex
+	// Abstract method that returns incoming neightbours 
+	// of a given vertex
 	public abstract List<Integer> getInNeighbors(int v);
 
 	
