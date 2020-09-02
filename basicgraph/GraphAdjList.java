@@ -26,26 +26,28 @@ public class GraphAdjList extends Graph {
 		adjListsMap = new HashMap<Integer,ArrayList<Integer>>();
 	}
 
-	// Implements the abstract method of getting a vertex
+	// Implements the abstract method of adding a vertex
 	public void implementAddVertex() {
 		int v = getNumVertices();
 		ArrayList<Integer> neighbors = new ArrayList<Integer>();
 		adjListsMap.put(v,  neighbors);
 	}
 	
-	// Implements the abstract method of getting a vertex
+	// Implements the abstract method of adding an edge
 	// given the start (v) and end (w) points
 	public void implementAddEdge(int v, int w) {
 		(adjListsMap.get(v)).add(w);
 
 	}
 	
-	// Implements the abstract method of getting Nighbours of a given vertex	
+	// Implements the abstract method of finding all outgoing 
+	// neighbours of a given vertex		
 	public List<Integer> getNeighbors(int v) {
 		return new ArrayList<Integer>(adjListsMap.get(v));
 	}
 
-	// Implements the abstract method of getting incoming neighbours of a vertex
+	// Implements the abstract method of returning all incoming 
+	// neighbours of a vertex
 	public List<Integer> getInNeighbors(int v) {
 		List<Integer> inNeighbors = new ArrayList<Integer>();
 		//iterate through all edges in u's adjacency list
@@ -62,8 +64,8 @@ public class GraphAdjList extends Graph {
 	}
 	 
 
-	// Implements the abstract method of finding vertices 'two hops' 
-	// from a given vertex	
+	 // Implements the abstract method of finding vertices 'two hops' 
+	 // from a given vertex	
 	 //Implemented in w/2
 	 public List<Integer> getDistance2(int v) {
 		 List<Integer> answer = new ArrayList<Integer>();
@@ -77,7 +79,7 @@ public class GraphAdjList extends Graph {
 		 return answer;
 	}
 	
-	// Generates a string representation of an adjacency list
+	// Generates a string representation of the adjacency list
 	public String adjacencyString() {
 		String s = "Adjacency list";
 		s += " (size " + getNumVertices() + "+" + getNumEdges() + " integers):";
