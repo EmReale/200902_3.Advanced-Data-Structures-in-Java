@@ -13,7 +13,7 @@ import java.util.Set;
  * The edges of the graph are not labeled.
  * Representation of edges via an adjacency matrix.
  * 
- * @author UCSD MOOC development team and YOU
+ * @author UCSD MOOC development team and ER
  *
  */
 public class GraphAdjMatrix extends Graph {
@@ -21,16 +21,12 @@ public class GraphAdjMatrix extends Graph {
 	private final int defaultNumVertices = 5;
 	private int[][] adjMatrix;
 	
-	/** Create a new empty Graph */
+	// Constructor creates a new empty graph
 	public GraphAdjMatrix () {
 		adjMatrix = new int[defaultNumVertices][defaultNumVertices];
 	}
 	
-	/** 
-	 * Implement the abstract method for adding a vertex.
-	 * If need to increase dimensions of matrix, double them
-	 * to amortize cost. 
-	 */
+	// Implements the abstract method of adding a vertex
 	public void implementAddVertex() {
 		int v = getNumVertices();
 		if (v >= adjMatrix.length) {
@@ -44,27 +40,14 @@ public class GraphAdjMatrix extends Graph {
 		}
 	}
 	
-	/** 
-	 * Implement the abstract method for adding an edge.
-	 * Allows for multiple edges between two points:
-	 * the entry at row v, column w stores the number of such edges.
-	 * @param v the index of the start point for the edge.
-	 * @param w the index of the end point for the edge.  
-	 */	
+	// Implements the abstract method of adding an edge
+	// given the start (v) and end (w) points	
 	public void implementAddEdge(int v, int w) {
 		adjMatrix[v][w] += 1;
 	}
 	
-	/** 
-	 * Implement the abstract method for finding all 
-	 * out-neighbors of a vertex.
-	 * If there are multiple edges between the vertex
-	 * and one of its out-neighbors, this neighbor
-	 * appears once in the list for each of these edges.
-	 * 
-	 * @param v the index of vertex.
-	 * @return List<Integer> a list of indices of vertices.  
-	 */	
+	// Implements the abstract method of finding all outgoing 
+	// neighbours of a given vertex	
 	public List<Integer> getNeighbors(int v) {
 		List<Integer> neighbors = new ArrayList<Integer>();
 		for (int i = 0; i < getNumVertices(); i ++) {
@@ -75,16 +58,8 @@ public class GraphAdjMatrix extends Graph {
 		return neighbors;
 	}
 	
-	/** 
-	 * Implement the abstract method for finding all 
-	 * in-neighbors of a vertex.
-	 * If there are multiple edges from another vertex
-	 * to this one, the neighbor
-	 * appears once in the list for each of these edges.
-	 * 
-	 * @param v the index of vertex.
-	 * @return List<Integer> a list of indices of vertices.  
-	 */
+	// Implements the abstract method of returning all incoming 
+	// neighbours of a vertex
 	public List<Integer> getInNeighbors(int v) {
 		List<Integer> inNeighbors = new ArrayList<Integer>();
 		for (int i = 0; i < getNumVertices(); i ++) {
@@ -95,15 +70,9 @@ public class GraphAdjMatrix extends Graph {
 		return inNeighbors;
 	}
 	
-	/** 
-	 * Implement the abstract method for finding all 
-	 * vertices reachable by two hops from v.
-	 * Use matrix multiplication to record length 2 paths.
-	 * 
-	 * @param v the index of vertex.
-	 * @return List<Integer> a list of indices of vertices.  
-	 */	
-	// XXX Implement this method in week 2
+	// Implements the abstract method of finding vertices 'two hops' 
+	// from a given vertex	
+	//Implemented in w/2
 	public List<Integer> getDistance2(int v) {
 		List<Integer> answer = new ArrayList<Integer>();
 		List<Integer> neighbours = getNeighbors(v);
@@ -115,10 +84,7 @@ public class GraphAdjMatrix extends Graph {
 		return answer;
 	}
 	
-	/**
-	 * Generate string representation of adjacency matrix
-	 * @return the String
-	 */
+	// Generates a string representation of the adjacency matrix
 	public String adjacencyString() {
 		int dim = getNumVertices();
 		String s = "Adjacency matrix";
