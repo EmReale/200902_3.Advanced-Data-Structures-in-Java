@@ -13,7 +13,7 @@ import java.util.Set;
  * The edges of the graph are not labeled.
  * Representation of edges via adjacency lists.
  * 
- * @author UCSD MOOC development team and YOU
+ * @author UCSD MOOC development team and ER
  *
  */
 public class GraphAdjList extends Graph {
@@ -21,56 +21,31 @@ public class GraphAdjList extends Graph {
 
 	private Map<Integer,ArrayList<Integer>> adjListsMap;
 	
-	/** 
-	 * Create a new empty Graph
-	 */
+	// Constructor creates a new empty graph
 	public GraphAdjList () {
 		adjListsMap = new HashMap<Integer,ArrayList<Integer>>();
 	}
 
-	/** 
-	 * Implement the abstract method for adding a vertex. 
-	 */
+	// Implements the abstract method of getting a vertex
 	public void implementAddVertex() {
 		int v = getNumVertices();
 		ArrayList<Integer> neighbors = new ArrayList<Integer>();
 		adjListsMap.put(v,  neighbors);
 	}
 	
-	/** 
-	 * Implement the abstract method for adding an edge.
-	 * @param v the index of the start point for the edge.
-	 * @param w the index of the end point for the edge.  
-	 */
+	// Implements the abstract method of getting a vertex
+	// given the start (v) and end (w) points
 	public void implementAddEdge(int v, int w) {
 		(adjListsMap.get(v)).add(w);
 
 	}
 	
-	/** 
-	 * Implement the abstract method for finding all 
-	 * out-neighbors of a vertex.
-	 * If there are multiple edges between the vertex
-	 * and one of its out-neighbors, this neighbor
-	 * appears once in the list for each of these edges.
-	 * 
-	 * @param v the index of vertex.
-	 * @return List<Integer> a list of indices of vertices.  
-	 */	
+	// Implements the abstract method of getting Nighbours of a given vertex	
 	public List<Integer> getNeighbors(int v) {
 		return new ArrayList<Integer>(adjListsMap.get(v));
 	}
 
-	/** 
-	 * Implement the abstract method for finding all 
-	 * in-neighbors of a vertex.
-	 * If there are multiple edges from another vertex
-	 * to this one, the neighbor
-	 * appears once in the list for each of these edges.
-	 * 
-	 * @param v the index of vertex.
-	 * @return List<Integer> a list of indices of vertices.  
-	 */	
+	// Implements the abstract method of getting incoming neighbours of a vertex
 	public List<Integer> getInNeighbors(int v) {
 		List<Integer> inNeighbors = new ArrayList<Integer>();
 		//iterate through all edges in u's adjacency list
@@ -87,14 +62,9 @@ public class GraphAdjList extends Graph {
 	}
 	 
 
-	/** 
-	 * Implement the abstract method for finding all 
-	 * vertices reachable by two hops from v.
-	 * 
-	 * @param v the index of vertex.
-	 * @return List<Integer> a list of indices of vertices.  
-	 */		
-	 //Implemented in week 2
+	// Implements the abstract method of finding vertices 'two hops' 
+	// from a given vertex	
+	 //Implemented in w/2
 	 public List<Integer> getDistance2(int v) {
 		 List<Integer> answer = new ArrayList<Integer>();
 		 //Get neighbours from first hop
@@ -107,10 +77,7 @@ public class GraphAdjList extends Graph {
 		 return answer;
 	}
 	
-	/**
-	 * Generate string representation of adjacency list
-	 * @return the String
-	 */
+	// Generates a string representation of an adjacency list
 	public String adjacencyString() {
 		String s = "Adjacency list";
 		s += " (size " + getNumVertices() + "+" + getNumEdges() + " integers):";
@@ -123,7 +90,8 @@ public class GraphAdjList extends Graph {
 		}
 		return s;
 	}
-
+	
+	// For testing
 	public static void main (String[] args) {
 		GraphAdjList adj = new GraphAdjList();
 		adj.addVertex();
