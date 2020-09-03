@@ -11,3 +11,6 @@ The main topics covered included:
 - Breadth First Search
 - Depth First Search
 - The principles of good class design
+- Stack data structure
+- Queues and priority queues
+- Dijkstra and A* Algorithms for weighted edges
