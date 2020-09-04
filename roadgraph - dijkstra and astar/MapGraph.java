@@ -259,14 +259,7 @@ public class MapGraph {
 					if (!visited.contains(n)) {
 						// Find the distance of n from the start using
 						// currNode's distance and edge length
-						double edgeLength= 0;
-						for (GraphEdge edge: edges) {
-							if (edge.getStart().equals(currNode.getLocation()) &&
-								edge.getEnd().equals(n.getLocation())) {
-								edgeLength = edge.getLength();
-							}
-						}
-						double distanceTravelled = currNode.getDistanceToStart() + edgeLength;
+						double distanceTravelled = currNode.getDistanceToStart() + currNode.getEdgeLength(n,edges);
 						// Predicted distance between neighbour and goal location
 						double predictedDistance = 0;
 						// If not being used for the dijkstra algorithm calcuate the predicted distance
