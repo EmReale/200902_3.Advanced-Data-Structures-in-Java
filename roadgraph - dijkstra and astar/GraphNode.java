@@ -44,6 +44,17 @@ public class GraphNode implements Comparable<GraphNode>{
 	}
 	
 	//GETTER + SETTER METHODS
+	/* New helper method to find edges */
+	public double getEdgeLength(GraphNode n, Set<GraphEdge> edges){
+		double edgeLength= 0;
+		for (GraphEdge edge: edges) {
+			if (edge.getStart().equals(this.getLocation()) &&
+				edge.getEnd().equals(n.getLocation())) {
+				edgeLength = edge.getLength();
+			}
+		}
+		return edgeLength;
+	}
 	
 	/* Returns a list of neighbour nodes */
 	public List<GraphNode> getNeighbors() {
