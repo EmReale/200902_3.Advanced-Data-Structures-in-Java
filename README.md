@@ -14,3 +14,7 @@ The main topics covered included:
 - Stack data structure
 - Queues and priority queues
 - Dijkstra and A* Algorithms for weighted edges
+- Greedy search and the Travelling Salesperson problem
+- Brute force approach to finding the shortest route
+- The concept of NP Hard problems
+- Hamiltonian and Eulerian graphs
